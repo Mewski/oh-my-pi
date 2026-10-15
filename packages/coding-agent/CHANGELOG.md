@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Added non-interrupting Zig rules for compiler-version compatibility, ownership and error handling, plus Zig-appropriate ports of existing refactor, type-safety, cleanup, testing, lookup, and iteration guidance.
+
 ## [18.11.0] - 2026-10-14
 
 ### Added

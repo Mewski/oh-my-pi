@@ -69,6 +69,24 @@ Consequence: precedence and deduplication are **name-based only**. Two different
 - `github` (priority `30`)
 - `builtin-defaults` (priority `1`)
 
+### Bundled defaults (`builtin-defaults.ts`)
+
+Language defaults live in `src/discovery/builtin-rules/*.md` and are registered in that directory's `index.ts`. Text imports embed their frontmatter and bodies in compiled binaries. A higher-priority rule with the same name overrides the bundled copy; `ttsr.builtinRules: false` disables the pack and `ttsr.disabledRules` disables individual names.
+
+The Zig pack uses the existing TTSR matcher and non-interrupting delivery, not a new language-detection or lint framework. Rules watch Zig edit/write snapshots; `zig-version-api` also reviews minimum-version fields in `build.zig.zon`. They are not automatically added wholesale to the initial system prompt.
+
+| Zig guidance | Existing rule principle adapted |
+| --- | --- |
+| `zig-checked-boundaries`, `zig-error-contract` | TypeScript cast/input-boundary precision and Rust explicit error contracts |
+| `zig-cleanup-guards` | Avoid redundant cleanup guards; in Zig, empty containers can still own capacity |
+| `zig-no-deprecated-leftovers` | Complete refactors of APIs whose callers are controlled |
+| `zig-no-tiny-functions` | Avoid trivial wrappers; retain meaningful public, generic, callback, and test contracts |
+| `zig-deterministic-waits` | Replace guessed test sleeps with deterministic time or readiness signals |
+| `zig-static-lookups` | Distinguish fixed lookup tables from genuinely dynamic maps |
+| `zig-range-loops` | Prefer equivalent range/slice iteration over a simple counted loop |
+
+The remaining Zig rules review compiler/stdlib version compatibility, `catch unreachable`, discarded allocation results, and direct undefined returns. Guidance follows the project's supported compiler rather than forcing an upgrade. Contextual triggers request review, not proof of a defect: documented error invariants, dynamic maps, production pacing, generic APIs, and explicit ownership contracts can justify the matched code. JavaScript-only runtime mechanics and Rust-specific library choices are not copied into Zig rules.
+
 ### Native provider (`builtin.ts`)
 
 Loads `.omp` rules from:

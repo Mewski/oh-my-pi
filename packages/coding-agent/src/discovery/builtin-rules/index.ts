@@ -35,6 +35,18 @@ import tsNoTinyFunctions from "./ts-no-tiny-functions.md" with { type: "text" };
 import tsPromiseWithResolvers from "./ts-promise-with-resolvers.md" with { type: "text" };
 import tsRedundantClearGuard from "./ts-redundant-clear-guard.md" with { type: "text" };
 import tsSetMap from "./ts-set-map.md" with { type: "text" };
+import zigCatchUnreachable from "./zig-catch-unreachable.md" with { type: "text" };
+import zigCheckedBoundaries from "./zig-checked-boundaries.md" with { type: "text" };
+import zigCleanupGuards from "./zig-cleanup-guards.md" with { type: "text" };
+import zigDeterministicWaits from "./zig-deterministic-waits.md" with { type: "text" };
+import zigDiscardedAllocation from "./zig-discarded-allocation.md" with { type: "text" };
+import zigErrorContract from "./zig-error-contract.md" with { type: "text" };
+import zigNoDeprecatedLeftovers from "./zig-no-deprecated-leftovers.md" with { type: "text" };
+import zigNoTinyFunctions from "./zig-no-tiny-functions.md" with { type: "text" };
+import zigRangeLoops from "./zig-range-loops.md" with { type: "text" };
+import zigReturnUndefined from "./zig-return-undefined.md" with { type: "text" };
+import zigStaticLookups from "./zig-static-lookups.md" with { type: "text" };
+import zigVersionApi from "./zig-version-api.md" with { type: "text" };
 
 /** A bundled rule's stable name and raw markdown (frontmatter + body). */
 export interface BuiltinRuleSource {
@@ -71,4 +83,16 @@ export const BUILTIN_RULE_SOURCES: readonly BuiltinRuleSource[] = [
 	{ name: "ts-promise-with-resolvers", content: tsPromiseWithResolvers },
 	{ name: "ts-redundant-clear-guard", content: tsRedundantClearGuard },
 	{ name: "ts-set-map", content: tsSetMap },
+	{ name: "zig-catch-unreachable", content: zigCatchUnreachable },
+	{ name: "zig-checked-boundaries", content: zigCheckedBoundaries },
+	{ name: "zig-cleanup-guards", content: zigCleanupGuards },
+	{ name: "zig-deterministic-waits", content: zigDeterministicWaits },
+	{ name: "zig-discarded-allocation", content: zigDiscardedAllocation },
+	{ name: "zig-error-contract", content: zigErrorContract },
+	{ name: "zig-no-deprecated-leftovers", content: zigNoDeprecatedLeftovers },
+	{ name: "zig-no-tiny-functions", content: zigNoTinyFunctions },
+	{ name: "zig-range-loops", content: zigRangeLoops },
+	{ name: "zig-return-undefined", content: zigReturnUndefined },
+	{ name: "zig-static-lookups", content: zigStaticLookups },
+	{ name: "zig-version-api", content: zigVersionApi },
 ];
